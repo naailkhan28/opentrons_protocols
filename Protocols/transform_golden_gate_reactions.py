@@ -31,7 +31,7 @@ def run(protocol: protocol_api.ProtocolContext):
     competent_cell_plate = temperature_module.load_labware("armadillo_96_wellplate_200ul_pcr_full_skirt") 
 
     #Define some constants and well name lists here for easy transfers later
-    num_reactions = 12
+    num_reactions = 8
     num_columns = ceil(num_reactions / 8)
     well_names = [f"A{x+1}" for x in range(num_columns)]
 
