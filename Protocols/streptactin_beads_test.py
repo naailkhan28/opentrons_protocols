@@ -62,9 +62,9 @@ def run(protocol: protocol_api.ProtocolContext):
     magnetic_module.disengage()
 
     #Load sample, dilute with Buffer W, and incubate
-    p300.transfer(180, reservoir["A2"], [beads_plate[well] for well in well_names], new_tip="never")
+    p300.transfer(150, reservoir["A2"], [beads_plate[well] for well in well_names], new_tip="never")
     p300.drop_tip()
-    p300.transfer(20, [lysate_plate[well] for well in well_names], [beads_plate[well] for well in well_names], new_tip="always")
+    p300.transfer(50, [lysate_plate[well] for well in well_names], [beads_plate[well] for well in well_names], new_tip="always") #Aspirate more than the theoretical sample volume, since some wells may have more volume (pipetting errors)
     protocol.pause("Incubate beads at room temperature with 700 rpm shaking for 60 minutes")
 
     #Separate beads and remove supernatant
