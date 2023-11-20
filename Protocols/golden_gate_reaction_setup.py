@@ -31,11 +31,11 @@ def run(protocol: protocol_api.ProtocolContext):
     well_names = [f"A{x+1}" for x in range(num_columns)]
 
     #Add master mix to reaction plate
-    p20.distribute(16,
+    p20.distribute(15.9,
                  target_golden_gate_reaction_plate["A12"],
                  [target_golden_gate_reaction_plate[well] for well in well_names])
     
     #Add gBlocks to each well
-    p20.transfer(4,
+    p20.transfer(4.1,
                  [gblock_plate[well] for well in well_names],
                  [target_golden_gate_reaction_plate[well] for well in well_names], mix_after=(4, 10), new_tip="always")
