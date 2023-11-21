@@ -14,16 +14,16 @@ metadata = {
 def run(protocol: protocol_api.ProtocolContext):
 
     #Load tips and labware
-    p20_tips = protocol.load_labware("opentrons_96_tiprack_20ul", 4)
-    p300_tips = protocol.load_labware("opentrons_96_tiprack_300ul", 5)
+    p20_tips = [protocol.load_labware("opentrons_96_tiprack_20ul", n) for n in [5, 8]]
+    p300_tips = [protocol.load_labware("opentrons_96_tiprack_300ul", n) for n in [4, 7]]
     reservoir = protocol.load_labware("usascientific_12_reservoir_22ml", 6)
 
     agar_plate = protocol.load_labware("nunc_rectangular_agar_plate", 1)
-    golden_gate_reaction_plate = protocol.load_labware("armadillo_96_wellplate_200ul_pcr_full_skirt", 2)
+    golden_gate_reaction_plate = protocol.load_labware("opentrons_96_aluminumblock_generic_pcr_strip_200ul", 2)
 
     #Load pipettes and hardware modules
-    p20 = protocol.load_instrument("p20_multi_gen2", "right", tip_racks=[p20_tips])
-    p300 = protocol.load_instrument("p300_multi_gen2", "left", tip_racks=[p300_tips])
+    p20 = protocol.load_instrument("p20_multi_gen2", "right", tip_racks=p20_tips)
+    p300 = protocol.load_instrument("p300_multi_gen2", "left", tip_racks=p300_tips)
 
     temperature_module  = protocol.load_module("temperature module gen2", 3)
 
@@ -31,7 +31,7 @@ def run(protocol: protocol_api.ProtocolContext):
     competent_cell_plate = temperature_module.load_labware("armadillo_96_wellplate_200ul_pcr_full_skirt") 
 
     #Define some constants and well name lists here for easy transfers later
-    num_reactions = 8
+    num_reactions = 48
     num_columns = ceil(num_reactions / 8)
     well_names = [f"A{x+1}" for x in range(num_columns)]
 
