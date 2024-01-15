@@ -20,7 +20,7 @@ def run(protocol: protocol_api.ProtocolContext):
     agar_plate = protocol.load_labware("nunc_rectangular_agar_plate", 1)
 
     #Load pipettes and hardware modules
-    p20 = protocol.load_instrument("p20_multi_gen2", "right", tip_racks=p20_tips)
+    p20 = protocol.load_instrument("p20_multi_gen2", "right", tip_racks=[p20_tips])
     p300 = protocol.load_instrument("p300_multi_gen2", "left", tip_racks=p300_tips)
 
     temperature_module  = protocol.load_module("temperature module gen2", 3)
