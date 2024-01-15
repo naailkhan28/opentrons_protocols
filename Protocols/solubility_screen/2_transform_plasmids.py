@@ -41,7 +41,7 @@ def run(protocol: protocol_api.ProtocolContext):
     temperature_module.set_temperature(celsius=4)
     protocol.pause("Add competent cells in PCR strips to temperature module now - don't forget to fill aluminium block with water!")
 
-    p20.transfer(15, [plasmid_plate[well] for well in well_names],
+    p20.transfer(10, [plasmid_plate[well] for well in well_names],
                      [competent_cell_plate[well] for well in well_names], mix_after=(1, 10), new_tip="always")
 
     #Incubate on ice and then wait for heat shock
@@ -57,12 +57,3 @@ def run(protocol: protocol_api.ProtocolContext):
                  [competent_cell_plate[well] for well in well_names],
                  [agar_plate[well].bottom(0) for well in well_names],
                  new_tip="always", blow_out=True, blowout_location="destination well")
-
-    #Dilute outgrowth 2x and plate again
-    p300.transfer(70, [competent_cell_plate[well] for well in well_names], reservoir["A12"], mix_before=(2, 100), new_tip="always")
-    p300.transfer(70, reservoir["A1"], [competent_cell_plate[well] for well in well_names], mix_after=(2, 100), new_tip="always")
-
-    p20.transfer(10,
-                 [competent_cell_plate[well] for well in well_names],
-                 [agar_plate[well].bottom(0) for well in well_names],
-                 new_tip="always", blow_out=True, blowout_location="destination well") 
