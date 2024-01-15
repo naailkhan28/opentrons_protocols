@@ -13,7 +13,7 @@ metadata = {
 def run(protocol: protocol_api.ProtocolContext):
 
     #Load tips and labware
-    p20_tips = [protocol.load_labware("opentrons_96_tiprack_20ul", n) for n in [5, 8]]
+    p20_tips = protocol.load_labware("opentrons_96_tiprack_20ul", 5)
     p300_tips = [protocol.load_labware("opentrons_96_tiprack_300ul", n) for n in [4, 7]]
     reservoir = protocol.load_labware("usascientific_12_reservoir_22ml", 6)
 
