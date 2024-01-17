@@ -37,11 +37,11 @@ def run(protocol: protocol_api.ProtocolContext):
     #Distribute medium
     #Need to do this in three steps because one reservoir well only holds enough for 8 destination columns
     p300.pick_up_tip()
-    p300.transfer(180, reservoir["A1"], od_plate_wells[:8], new_tip="never")
-    p300.transfer(180, reservoir["A2"], od_plate_wells[8:16], new_tip="never")
-    p300.transfer(180, reservoir["A3"], od_plate_wells[16:], new_tip="never")
+    p300.transfer(190, reservoir["A1"], od_plate_wells[:8], new_tip="never")
+    p300.transfer(190, reservoir["A2"], od_plate_wells[8:16], new_tip="never")
+    p300.transfer(190, reservoir["A3"], od_plate_wells[16:], new_tip="never")
     p300.transfer(200, reservoir["A3"], [plate["A12"] for plate in od_plates], new_tip="never")
     p300.drop_tip()
 
     #Inoculate expression wells with overnight cultures
-    p300.transfer(20, culture_plate_wells, od_plate_wells, mix_after=(2, 80), new_tip="always")
+    p300.transfer(10, culture_plate_wells, od_plate_wells, mix_after=(2, 80), new_tip="always")
