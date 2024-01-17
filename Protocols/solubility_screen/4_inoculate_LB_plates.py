@@ -18,7 +18,7 @@ def run(protocol: protocol_api.ProtocolContext):
     culture_plates = [protocol.load_labware("abgene_96_wellplate_2200ul", n) for n in [1, 2]]
 
     #Load pipettes and hardware modules
-    p300 = protocol.load_instrument("p300_multi_gen2", "left", tip_racks=p300_tips)
+    p300 = protocol.load_instrument("p300_multi_gen2", "left", tip_racks=[p300_tips])
 
     #Make a list of all wells we're using in this protocol
     locations = []
