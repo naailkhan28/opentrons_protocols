@@ -31,7 +31,7 @@ def run(protocol: protocol_api.ProtocolContext):
 
 
     #Reserve PCR reactions
-    p20.transfer(5, [pcr_plate[well] for well in well_names], [pcr_plate[well] for well in new_well_names])
+    p20.transfer(5, [pcr_plate[well] for well in well_names], [pcr_plate[well] for well in new_well_names], new_tip="always")
 
     #Add loading dye
-    p20.transfer(2.22, reservoir["A1"], [pcr_plate[well] for well in well_names])
+    p20.transfer(2.22, reservoir["A1"], [pcr_plate[well] for well in well_names], new_tip="always")
