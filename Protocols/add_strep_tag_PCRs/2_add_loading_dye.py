@@ -17,7 +17,7 @@ def run(protocol: protocol_api.ProtocolContext):
     reservoir = protocol.load_labware("usascientific_12_reservoir_22ml", 2)
 
     #Load pipettes and hardware modules
-    p20 = protocol.load_instrument("p20_multi_gen2", "right", tip_racks=p20_tips)
+    p20 = protocol.load_instrument("p20_multi_gen2", "right", tip_racks=[p20_tips])
     temperature_module  = protocol.load_module("temperature module gen2", 3)
 
     #Load labware for temperature module
