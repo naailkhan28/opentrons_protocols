@@ -19,7 +19,7 @@ def run(protocol: protocol_api.ProtocolContext):
     reservoir = protocol.load_labware("usascientific_12_reservoir_22ml", 6)
 
     agar_plate = protocol.load_labware("nunc_rectangular_agar_plate", 1)
-    kld_plate = protocol.load_labware("opentrons_96_aluminumblock_generic_pcr_strip_200ul", 2)
+    kld_plate = protocol.load_labware("armadillo_96_wellplate_200ul_pcr_full_skirt", 2)
 
     #Load pipettes and hardware modules
     p20 = protocol.load_instrument("p20_multi_gen2", "right", tip_racks=p20_tips)
