@@ -17,7 +17,7 @@ def run(protocol: protocol_api.ProtocolContext):
     reservoir = protocol.load_labware("usascientific_12_reservoir_22ml", 2)
 
     #Load pipettes and hardware modules
-    p20 = protocol.load_instrument("p20_multi_gen2", "right", tip_racks=p20_tips)
+    p20 = protocol.load_instrument("p20_multi_gen2", "right", tip_racks=[p20_tips])
     temperature_module  = protocol.load_module("temperature module gen2", 3)
 
     #Load labware for temperature module
@@ -31,7 +31,7 @@ def run(protocol: protocol_api.ProtocolContext):
 
 
     #Reserve PCR reactions
-    p20.transfer(5, [pcr_plate[well] for well in well_names], [pcr_plate[well] for well in new_well_names], new_tip="always")
+    p20.transfer(5, [pcr_plate[well] for well in well_names], [pcr_plate[new_well] for new_well in new_well_names], new_tip="always")
 
     #Add loading dye
     p20.transfer(2.22, reservoir["A1"], [pcr_plate[well] for well in well_names], new_tip="always")
