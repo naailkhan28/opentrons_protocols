@@ -36,9 +36,9 @@ def run(protocol: protocol_api.ProtocolContext):
     #Distribute TB medium
     #Need to do this in three steps because one reservoir well only holds enough for 8 destination wells
     p300.pick_up_tip()
-    p300.transfer(225, reservoir["A1"], expression_wells[:8], new_tip="never")
-    p300.transfer(225, reservoir["A2"], expression_wells[8:16], new_tip="never")
-    p300.transfer(225, reservoir["A3"], expression_wells[16:], new_tip="never")
+    p300.transfer(225, reservoir["A4"], expression_wells[:8], new_tip="never")
+    p300.transfer(225, reservoir["A5"], expression_wells[8:16], new_tip="never")
+    p300.transfer(225, reservoir["A6"], expression_wells[16:], new_tip="never")
     p300.drop_tip()
 
     #Inoculate expression wells with overnight cultures
